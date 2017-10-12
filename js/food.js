@@ -4,8 +4,10 @@
     var fetchButton = document.getElementById("fetch-button"),
         clearButton = document.getElementById("clear-button"),
         categoryList = document.getElementById("cat-list"),
+        cityList = document.getElementById("city-name"),
         // carUrlDebug = "http://localhost:3000/",
-        carUrl = "https://developers.zomato.com/api/v2.1/categories",
+        catUrl = "https://developers.zomato.com/api/v2.1/categories",
+        cityUrl ="https://developers.zomato.com/api/v2.1/locations?query=seattle",
        // carUrl = "http://formreflector.azurewebsites.net/api/car/manufacturer/",
         httpRequest;
 
@@ -27,7 +29,6 @@
 
     var getData = function getData() {
         console.log(httpRequest.readyState);
-       // httpRequest.setRequestHeader('Authorization', '8267b8cd76a64d223ef1275eb2cdc63a');
         if(httpRequest.readyState === XMLHttpRequest.DONE){
             if(httpRequest.status === 200){
                 console.log("Go Data: " + httpRequest.responseText);
@@ -45,50 +46,28 @@
         var newSelect;
         dataArr.categories.forEach(function(value, index, originalArray){
             console.log(value);
-        
-             //    newSelect =document.createElement("select");
             var newItem = document.createElement("option");
                //  newSelect = document.createElement("select");
 
             newItem.classList.add("dropdown-item");
-           // newItem.classList.add("bg-secondary");
-
-          //  newAnchor.href="https://developers.zomato.com/api/v2.1/categories/" + value.categories.id;
-          //  newAnchor.href= "#";
             newItem.innerText = value.categories.name;
             newItem.id = value.categories.id;
-          //  newItem.value = "https://developers.zomato.com/api/v2.1/categories/" + value.categories.id;
-         //   newSelect.appendChild(newItem);
-           // newSelect.appendChild(newItem);
-            /*   if (index < 7)
-        {*/
-         categoryList.appendChild(newItem);
-         // }//
+            categoryList.appendChild(newItem);
          
         });
-    
-       // manufacturerList.appendChild(newSelect);
-
-       /* console.log(dataArr.categories.length);
-        console.log(dataArr.categories[0]);
-
-        for (var i =0; i < dataArr.categories.length;i++)
-        {
-            console.log(dataArr.categories[i]);
-               // console.log(dataArr.length);
-        }*/
         
     };
-
+    //category event listener
     fetchButton.addEventListener("click", function () {
-        makeRequest(carUrl);
+        makeRequest(catUrl);
     });
+
 
     clearButton.addEventListener("click", function () {
         renderList("[]");
     });
-
+    // load category list
     window.onload= function () { 
-        makeRequest(carUrl);
+        makeRequest(catUrl);
     };
 })();
