@@ -1,7 +1,26 @@
 body {
-    background-color: lightcyan;
+    background-color: whitesmoke
 }
 
 a:link {
     text-decoration: none;
+}
+
+.foodtop {
+    /* background-image:url(/office_4-t2.jpg); */
+    /* background-image:url(/geek_glasses.jpg); */
+     /* background-position: top center;  */
+     background-image:url(images/food_wine.jpg); 
+      background-position:center top;
+      background-size:100%;  
+     /* margin-bottom:1rem; */
+     
+}
+#navStyle{
+    color: whitesmoke;
+    background-color: black;
+      margin-bottom: 2.0rem;  
+      display:block;
+
+         
 }
