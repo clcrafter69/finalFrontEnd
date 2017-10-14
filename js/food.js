@@ -45,10 +45,11 @@
     };
 
     var renderList = function renderList(data){
-        var dataArr = JSON.parse(data);
-
+        var dataArr = JSON.parse(data);       
+      
        switch (urlCalled) {
        case catUrl:
+       
         dataArr.categories.forEach(function(value, index, originalArray){
             console.log(value);
             var newItem = document.createElement("option");
@@ -58,6 +59,7 @@
             newItem.innerText = value.categories.name;
             newItem.id = value.categories.id;
             categoryList.appendChild(newItem);
+            
                             
         });  
         break; 
