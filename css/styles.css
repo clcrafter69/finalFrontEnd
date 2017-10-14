@@ -1,9 +1,46 @@
 body {
     background-color: whitesmoke
 }
+h4{
+  text-align: center;
+  padding-bottom: 2rem;
+  color: #DF3535;
+}
+
+table{
+    margin-top: 5rem;
+}
 
 a:link {
     text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+a:hover, a:visited{
+    color:grey;
+}
+
+th{
+    background-color: #8B2626;
+    color: whitesmoke;
+}
+form{
+    margin-left: 8rem;
+}
+
+
+.panel-body
+{
+
+    padding-top: 5rem;
+    padding-left:30px;
+    margin:auto;
+}
+
+#category-panel{
+    padding-top: 5rem;
+    padding-left:0px;
+
 }
 
 .foodtop {

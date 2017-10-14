@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Car Manager</title>
+        <title>Foodie Central</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         
         <link rel="stylesheet" href="/css/styles.css">
@@ -26,7 +26,7 @@
                          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                               <a class="navbar-brand" id="brandStyling" href="#">Foodie Central</a>
+                               <a class="navbar-brand" id="brandStyling" href="#">Foodie Central-Eat, Drink, and BE MERRY</a>
                                <div class="collapse navbar-collapse  justify-content-end" id="nav-content">                
                                     <ul class="navbar-nav nav nav-pills ">
                                         <li class="nav-item">
@@ -51,43 +51,39 @@
         </header>
         <div class="container">
          <div class= "row">
-            <main class="col-md-5">
+            <main class="col-md-12">
                   <div class="container">
                         <div >
-                            <h4>Find Manufacturers</h4>
+                         
                         </div>
                         <div class="panel-body">
-                            <form action="#" method="POST">
-                                <input type="text" name="city-name" id="city-name">
-                                <button type="button" id="fetch-button" class="btn btn-success">Fetch Manufacturers</button>
-                                <button type="button" id="clear-button" class="btn btn-info">Clear</button>
-                                <button type="button" id="find-food" class="btn btn-success"> find restaurants</button>
+                            <h4> FIND AN AMAZING RESTAURANT NEAR YOU</h4>
+                            <form action="#" method="POST" class="form-inline">
+                                <label class="mr-md-2 mb-0" for="city_name">City:</label>
+                                <input type="text" name="city-name" id="city-name" placeholder = " Ex. Atlanta" class="form-control mr-sm-2 mb-2 mb-sm-0">
+                                <label class="mr-md-2 mb-0" for="cat-list">Category:</label>
+                                <select class="custom-select mr-md-2 mb-0" id="cat-list"> 
+                                        <option selected>Choose category </option>                            
+                              </select>
+
+                                <button type="button" id="find-food" class="btn btn-success mr-md-2 mb-0"> Find Now!</button>
+                                <button type="button" id="clear-button" class="btn btn-secondary mr-md-2 mb-0">Clear</button>
+                               
                             </form>
                         </div>
                     </div>
              
             </main>
-            <aside class="col-md-7">
-                <div id="vehicle-list-panel" >
-                        <h4>Category</h4>
-                        <select class="custom-select" id="cat-list"> 
-                                <option selected>Open this select menu</option>
-                      
-                      </select>
-                   
-                </div>
-            </aside> 
+ 
         </div>
-        <div class ="row">
-            <div class="panel-body" id="restaurant-list">
+        <div class ="row  container-fluid" id="restaurant-list"> 
 
-            </div>
 
         </div>
 
         </div>
         <footer>
-            <small>&copy; 2017 Code Career Academy</small>
+            <small>&copy; 2017 Cynthia L Crafter</small>
         </footer>        
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

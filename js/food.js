@@ -1,8 +1,8 @@
 "use strict";
 
 (function () {
-    var fetchButton = document.getElementById("fetch-button"),
-        clearButton = document.getElementById("clear-button"),
+    var  clearButton = document.getElementById("clear-button"),
+        cuisineList = document.getElementById("cuisine-list"),
         categoryList = document.getElementById("cat-list"),
         cityList = document.getElementById("city-name"),
         findFood = document.getElementById("find-food"),
@@ -77,28 +77,88 @@
 
             cityList.innerText = value.city_name;
             cityList.id = value.city_id;
-                            
+
+                
         }); 
         break;
         case findUrl:
         restaurantList.innerText="";
-        dataArr.restaurants.forEach(function(value, index, originalArray){
+        var ourTable,
+            ourTableBody,
+            cell,
+            cellText,
+            cellRow,
+            row;
+        
+          /*test table code--REMOVE after test*/
+
+          var headerArray = ["Name","ADDRESS","CUISINE","RATING","LINK"];
+              ourTable =document.createElement("table");
+          ourTable.classList.add("table","table-striped","table-responsive");
+          ourTableBody = document.createElement("tbody");
+          for (var i = 0; i < 4; i++) {
+               row = document.createElement("tr");
+              // row.classList.add("thead-inverse");
+              for (var j = 0; j <headerArray.length; j++) {
+                   cell = document.createElement("th");
+                   cellText = document.createTextNode(headerArray[j].toUpperCase());
+                  cell.appendChild(cellText);
+                  row.appendChild(cell);
+              }
+          }
+
+          ourTableBody.appendChild(row);
+        //  ourTable.appendChild(ourTableBody);
+         // restaurantList.appendChild(ourTable);      
+
+          dataArr.restaurants.forEach(function(value, index, originalArray){
             console.log(value); 
-            restaurantList.innerText+=value.restaurant.location.address + " " + value.restaurant.user_rating.aggregate_rating;
+         //   restaurantList.innerText+=value.restaurant.url + " " +value.restaurant.location.address + " " + value.restaurant.cuisines + " " +value.restaurant.user_rating.aggregate_rating;
 
-
-        /*    categoryList.innerHTML = "";
-            var newItem = document.createElement("option");
-               //  newSelect = document.createElement("select");
-
-            newItem.classList.add("dropdown-item");
-            newItem.innerText = value.city_name;
-            newItem.id = value.city_id;
-            categoryList.appendChild(newItem);*/
-            
-            
-                            
+         //create row
+         
+            cellRow = document.createElement("tr");
+            //populate cells
+            for (var i = 0; i <= 5; i++) {    
+                cell = document.createElement("td");
+                if(i==0){
+                cellText = document.createTextNode(value.restaurant.name);
+                cell.appendChild(cellText);
+                cellRow.appendChild(cell);
+                }
+                else if (i==1){
+                cellText = document.createTextNode(value.restaurant.location.address);
+                cell.appendChild(cellText);
+                cellRow.appendChild(cell);
+                }
+                else if(i==2){
+                cellText = document.createTextNode(value.restaurant.cuisines);
+                cell.appendChild(cellText);
+                cellRow.appendChild(cell);
+                }
+                else if (i==3)
+                {
+                cellText = document.createTextNode(value.restaurant.user_rating.aggregate_rating);
+                cell.appendChild(cellText);
+                cellRow.appendChild(cell);
+                }
+                else if (i==4)
+                {
+                cellText = document.createElement('a');
+                cellText.href = value.restaurant.url;
+                cellText.innerText= "GO!";
+                cellText.target="_blank";
+                cell.appendChild(cellText);
+                cellRow.appendChild(cell);
+                }
+         }
+         
+         ourTableBody.appendChild(cellRow);
+                 
         }); 
+      //  ourTableBody.appendChild(cellRow);
+        ourTable.appendChild(ourTableBody);
+        restaurantList.appendChild(ourTable);   
         break;
         default:
         console.log('Mangoes and papayas are $2.79 a pound.');
@@ -110,7 +170,7 @@
     //build restaurant string
     var foodString = function foodString()
     {
-        findUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" +cityList.id + "&entity_type=city&count=5&sort=rating&order=desc";
+        findUrl = "https://developers.zomato.com/api/v2.1/search?entity_id=" +cityList.id + "&entity_type=city&category="+ document.getElementById("cat-list").selectedIndex + "&count=5&sort=rating&order=desc";
         urlCalled =findUrl;
     }
 
